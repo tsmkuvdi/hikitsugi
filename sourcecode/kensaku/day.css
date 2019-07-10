@@ -1,0 +1,9 @@
+﻿h1   {color:red; font-size: 30px;}
+
+body {font-size: 1.2em;}
+
+a {font-size: 20px; }
+a:link { color: #0000ff; }
+a:visited { color: #000080; }
+a:hover { color: #ff0000; }
+a:active { color: #ff8000; }
