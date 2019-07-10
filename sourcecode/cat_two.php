@@ -2,12 +2,14 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<title>危険物</title>
+<title>カテゴリ２</title>
 </head>
 <body>
-<h3>危険物</h3>
+<h3>カテゴリ２</h3>
 <?php
-require_once 'db_config.php';
+// エラーを出力する
+//ini_set('display_errors', "On");
+require_once 'config/db_config.php';
 require_once ('function_gather/function_category.php');
 
 try {
@@ -21,7 +23,7 @@ try {
 	$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	echo "<table  width=100% border=1 cellspacing=1> \n";
 	echo "<tr>\n";
-	echo "<<th>日付</th><th>内容</th><th>担当</th><th>カテゴリ</th><th>進行状況</th>\n";
+	echo "<th>日付</th><th>内容</th><th>担当</th><th>カテゴリ</th><th>進行状況</th>\n";
 	echo "</tr>\n";
 	foreach ($result as $row) {
 		echo "<tr>\n";
@@ -61,7 +63,7 @@ try {
 <table  width=100%>
   <tr>
     <th>
-      <div align="left"><a href="list.php">一覧に戻る</a></div>
+      <div align="left"><a href="index.php">一覧に戻る</a></div>
     </th>
     <th>
       <FORM>
@@ -71,7 +73,7 @@ try {
       </FORM>
     </th>
     <th>
-      <div align="left">危険物 引継</div>
+      <div align="left">カテゴリ２ 引継</div>
     </th>
   </tr>
 <table>

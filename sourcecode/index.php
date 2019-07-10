@@ -72,13 +72,13 @@ try {
       <a href="cat_one.php">その他</a>
     </th>
     <th>
-      <a href="cat_two.php">危険物</a>
+      <a href="cat_two.php">2番</a>
     </th>
     <th>
-      <a href="cat_three.php">設備</a>
+      <a href="cat_three.php">3番</a>
     </th>
     <th>
-      <a href="cat_four.php">防火管理</a>
+      <a href="cat_four.php">4番</a>
     </th>
     <th>
      <div align="right"><a href="prebackup.html">バックアップ</a></div>

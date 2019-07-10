@@ -1,10 +1,10 @@
 <?php
-
+//index.php,cat_one.php(各カテゴリページ)から呼び出し
 function categoryDisplay_function($row){
-  if ($row['category'] === '1') $tmp = "届出 報告書 その他";
-  if ($row['category'] === '2') $tmp = "危険物";
-  if ($row['category'] === '3') $tmp = "設備";
-  if ($row['category'] === '4') $tmp = "防火管理";
+  if ($row['category'] === '1') $tmp = "その他";
+  if ($row['category'] === '2') $tmp = "カテゴリ２";
+  if ($row['category'] === '3') $tmp = "カテゴリ３";
+  if ($row['category'] === '4') $tmp = "カテゴリ４";
 
 return $tmp;
 
