@@ -8,7 +8,7 @@
 <body>
 <h3>過去１年引継内容検索結果</h3>
 <?php
-require_once ( __DIR__ .'/../db_config.php');
+require_once '../config/db_config.php';
 require_once '../function_gather/function_category.php';
 
 try {
@@ -30,8 +30,8 @@ try {
 	echo "</tr>\n";
 	foreach ($result as $row) {
 		echo "<tr>\n";
-		echo "<td>" . htmlspecialchars($row['hizuke'],ENT_QUOTES,'UTF-8') . "</td>\n";
-		echo "<td>" . nl2br(htmlspecialchars($row['naiyou'],ENT_QUOTES,'UTF-8')) . "</td>\n";
+		echo "<td width=13%>" . htmlspecialchars($row['hizuke'],ENT_QUOTES,'UTF-8') . "</td>\n";
+		echo "<td width=50%>" . nl2br(htmlspecialchars($row['naiyou'],ENT_QUOTES,'UTF-8')) . "</td>\n";
 		echo "<td>" . htmlspecialchars($row['tantou'],ENT_QUOTES,'UTF-8') . "</td>\n";
 
          $tmp = categoryDisplay_function($row); //関数呼び出し
@@ -52,7 +52,8 @@ try {
 }
 ?>
 <h3>
-<div align="left"><a href="../list.php">引継一覧に戻る</a></div>
+<a href="../kako_kensaku.php">前のページに戻る</a>&nbsp;&nbsp;
+<a href="../index.php">一覧に戻る</a>
 </h3>
 
 </body>

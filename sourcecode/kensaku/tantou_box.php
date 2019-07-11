@@ -12,7 +12,7 @@
 // エラーを出力する
 ini_set('display_errors', "On");
 
-require_once ( __DIR__ .'/../db_config.php');
+require_once '../config/db_config.php';
 require_once '../function_gather/function_category.php';
 
 
@@ -48,8 +48,8 @@ try {
 	echo "</tr>\n";
 	foreach ($result as $row) {
 		echo "<tr>\n";
-		echo "<td>" . htmlspecialchars($row['hizuke'],ENT_QUOTES,'UTF-8') . "</td>\n";
-		echo "<td>" . nl2br(htmlspecialchars($row['naiyou'],ENT_QUOTES,'UTF-8')) . "</td>\n";
+		echo "<td width=13%>" . htmlspecialchars($row['hizuke'],ENT_QUOTES,'UTF-8') . "</td>\n";
+		echo "<td width=50%>" . nl2br(htmlspecialchars($row['naiyou'],ENT_QUOTES,'UTF-8')) . "</td>\n";
 		echo "<td>" . htmlspecialchars($row['tantou'],ENT_QUOTES,'UTF-8') . "</td>\n";
 
          $tmp = categoryDisplay_function($row); //関数呼び出し
@@ -60,8 +60,8 @@ try {
 		echo "<td>" . htmlspecialchars($zap ,ENT_QUOTES,'UTF-8') . "</td>\n";
 
 		echo "<td>\n";
-		echo "|<a href=../edit.php?id=" . htmlspecialchars($row['id'],ENT_QUOTES,'UTF-8') . ">変更</a>\n";
-		echo "|<a href=../predelete.php?id=" . htmlspecialchars($row['id'],ENT_QUOTES,'UTF-8') . ">削除</a>\n";
+		echo "|<a href=../edit.php?id=" . htmlspecialchars($row['id_hikitsugi'],ENT_QUOTES,'UTF-8') . ">変更</a>\n";
+		echo "|<a href=../predelete.php?id=" . htmlspecialchars($row['id_hikitsugi'],ENT_QUOTES,'UTF-8') . ">削除</a>\n";
 		echo "</td>\n";
 
 		echo "</tr>\n";
@@ -78,7 +78,8 @@ try {
 
 
 <h3>
-<div align="left"><a href="../list.php">引継一覧に戻る</a></div>
+<a href="../kako_kensaku.php">前のページに戻る</a>&nbsp;&nbsp;
+<a href="../index.php">一覧に戻る</a>
 </h3>
 
 </body>

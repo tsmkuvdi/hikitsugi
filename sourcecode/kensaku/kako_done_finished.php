@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
@@ -7,7 +7,9 @@
 <body>
 
 <?php
-require_once ( __DIR__ .'/../db_config.php');
+// エラーを出力する
+ini_set('display_errors', "On");
+require_once '../config/db_config.php';
 require_once '../function_gather/function_category.php';
 
 try {
@@ -53,8 +55,8 @@ try {
 
 
 		echo "<td>\n";
-		echo "|<a href=../edit.php?id=" . htmlspecialchars($row['id'],ENT_QUOTES,'UTF-8') . ">変更</a>\n";
-		echo "|<a href=../predelete.php?id=" . htmlspecialchars($row['id'],ENT_QUOTES,'UTF-8') . ">削除</a>\n";
+		echo "|<a href=../edit.php?id=" . htmlspecialchars($row['id_hikitsugi'],ENT_QUOTES,'UTF-8') . ">変更</a>\n";
+		echo "|<a href=../predelete.php?id=" . htmlspecialchars($row['id_hikitsugi'],ENT_QUOTES,'UTF-8') . ">削除</a>\n";
 		echo "</td>\n";
 
 
@@ -72,7 +74,8 @@ try {
 ?>
 
 <h3>
-<div align="left"><a href="../list.php">一覧に戻る</a></div>
+<a href="../kako_kensaku.php">前のページに戻る</a>&nbsp;&nbsp;
+<a href="../index.php">一覧に戻る</a>
 </h3>
 </body>
 </html>

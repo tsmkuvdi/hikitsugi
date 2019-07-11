@@ -1,5 +1,5 @@
 <?php
-//index.php,kakoyear_kensaku.php,cat_one.php(各カテゴリページ)から呼び出し
+//index.php,kakoyear_kensaku.php,kako_done_finished.php,cat_one.php(各カテゴリページ)から呼び出し
 function categoryDisplay_function($row){
   if ($row['category'] === '1') $tmp = "その他";
   if ($row['category'] === '2') $tmp = "カテゴリ２";

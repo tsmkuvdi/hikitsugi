@@ -70,7 +70,7 @@ try {
 
 ?>
 
-<a href="../kako_kensaku.php">前のページに戻る</a>
+<a href="../kako_kensaku.php">前のページに戻る</a>&nbsp;&nbsp;
 <a href="../index.php">一覧に戻る</a>
 
 </body>

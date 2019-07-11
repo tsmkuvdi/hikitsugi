@@ -1,7 +1,7 @@
 <?php
 // エラーを出力する
 ini_set('display_errors', "On");
-require_once 'db_config.php';
+require_once 'config/db_config.php';
 
 
 try {
@@ -10,7 +10,7 @@ try {
 	$dbh = new PDO("mysql:host=localhost;dbname=$databasename;charset=utf8", $user, $pass);
 	$dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$sql = "SELECT * FROM $dbtablename WHERE id = ?";
+	$sql = "SELECT * FROM $dbtablename WHERE id_hikitsugi = ?";
 	$stmt = $dbh->prepare($sql);
 	$stmt->bindValue(1, $id, PDO::PARAM_INT);
 	$stmt->execute();
@@ -41,7 +41,7 @@ try {
 </table>
 <br>
 <br>
-<a href='list.php'>引継ぎ簿に戻る</a>
+<a href='index.php'>引継ぎ簿に戻る</a>
 
 </body>
 </html>
