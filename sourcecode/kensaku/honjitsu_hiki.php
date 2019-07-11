@@ -23,12 +23,15 @@ $week = $datetime->format('w');
 
 ?>
 
-<h1><?=$year.'年'.$month.'月'.$day.'日&nbsp;'.$weekday[$week].'曜日'.'&nbsp;&nbsp;&nbsp;&nbsp;本日の引継事項'?></h1>
+<h1><?=$year.'年'.$month.'月'.$day.'日&nbsp;'.$weekday[$week].'曜日'.'&nbsp;&nbsp;&nbsp;&nbsp;本日の引継事項'?></h1>昨日・今日の日付
 
-
+<form>
+  <div align="right">
+    <input type="button" value="印刷" onclick="window.print();" /> </div>
+</form>
 
 <?php
-require_once ( __DIR__ .'/../db_config.php');
+require_once '../config/db_config.php';
 require_once '../function_gather/function_category.php';
 try {
 	$dbh = new PDO("mysql:host=localhost;dbname=$databasename;charset=utf8", $user, $pass);
@@ -67,7 +70,8 @@ try {
 
 ?>
 
-<a href="../list.php">一覧に戻る</a>
+<a href="../kako_kensaku.php">前のページに戻る</a>
+<a href="../index.php">一覧に戻る</a>
 
 </body>
 </html>

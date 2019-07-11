@@ -3,7 +3,7 @@
 <meta http-equiv="refresh" content="180" >
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="day.css">
-<title>非番週休の引継事項</title>
+<title>3日間の引継事項</title>
 </head>
 <body>
 
@@ -23,7 +23,7 @@ $week = $datetime->format('w');
 
 ?>
 
-<h1><?=$year.'年'.$month.'月'.$day.'日&nbsp;'.$weekday[$week].'曜日'.'&nbsp;&nbsp;&nbsp;&nbsp;非番週休の引継事項'?></h1>
+<h1><?=$year.'年'.$month.'月'.$day.'日&nbsp;'.$weekday[$week].'曜日'.'&nbsp;&nbsp;&nbsp;&nbsp;3日間の引継事項'?></h1>
 
 <form>
   <div align="right">
@@ -32,7 +32,7 @@ $week = $datetime->format('w');
 
 
 <?php
-require_once ( __DIR__ .'/../db_config.php');
+require_once '../config/db_config.php';
 require_once '../function_gather/function_category.php';
 try {
 	$dbh = new PDO("mysql:host=localhost;dbname=$databasename;charset=utf8", $user, $pass);
@@ -73,8 +73,8 @@ try {
 }
 
 ?>
-
-<a href="../list.php">一覧に戻る</a>
+<a href="../kako_kensaku.php">前のページに戻る</a>
+<a href="../index.php">一覧に戻る</a>
 
 </body>
 </html>

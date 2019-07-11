@@ -100,7 +100,7 @@
       </form>
     </td>
     <td>
-      <a href="kensaku/hiban_shukyu.php">3日間の引継事項（一昨日、昨日、今日）</a>
+      <a href="kensaku/day_three.php">3日間の引継事項（一昨日、昨日、今日）</a>
     </td>
   </tr>
 </table>
