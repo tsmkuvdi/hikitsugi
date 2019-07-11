@@ -9,7 +9,7 @@
 <h3>引継ぎ簿　過去3ヶ月表示</h3>
 <?php
 // エラーを出力する
-//ini_set('display_errors', "On");
+ini_set('display_errors', "On");
 require_once ('config/db_config.php');
 require_once ('function_gather/function_category.php');
 
@@ -70,17 +70,8 @@ try {
     </th>
     <th>
        <form action = "category_select_3month.php" method="post">
-        <select name="category" size="4">
-           <?php require_once ('function_gather/function_category_html.php'); ?>
-           <?php category_Html_Select(); ?>
-        </select>
-
-        <select name="shinkou" size="2">
-         <option value="1" selected>未了</option>
-         <option value="2">済</option>
-        </select>
-         <input type="submit" name="exec" value="検索">
-       </form>
+           <?php require_once ('function_gather/function_category_linkhtml.php'); ?>
+           <?php category_Html_link(); ?>
     </th>
     <th>
      <div align="right"><a href="prebackup.html">バックアップ</a></div>
