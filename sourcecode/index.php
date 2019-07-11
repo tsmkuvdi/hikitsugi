@@ -69,16 +69,18 @@ try {
      <div align="left"><a href="form.php">引継簿新規登録</a></div>
     </th>
     <th>
-      <a href="cat_one.php">その他</a>
-    </th>
-    <th>
-      <a href="cat_two.php">2番</a>
-    </th>
-    <th>
-      <a href="cat_three.php">3番</a>
-    </th>
-    <th>
-      <a href="cat_four.php">4番</a>
+       <form action = "category_select_3month.php" method="post">
+        <select name="category" size="4">
+           <?php require_once ('function_gather/function_category_html.php'); ?>
+           <?php category_Html_Select(); ?>
+        </select>
+
+        <select name="shinkou" size="2">
+         <option value="1" selected>未了</option>
+         <option value="2">済</option>
+        </select>
+         <input type="submit" name="exec" value="検索">
+       </form>
     </th>
     <th>
      <div align="right"><a href="prebackup.html">バックアップ</a></div>
