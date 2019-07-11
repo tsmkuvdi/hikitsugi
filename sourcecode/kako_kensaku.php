@@ -10,7 +10,7 @@
   <tr>
     <td>
       <form action = "kensaku/kakoyear_kensaku.php" method="post">
-　　   西暦<input type="number" min="2018" max="2028" name="yearid" style="width:100px;">年
+　　   西暦<input type="number" min="2018" max="2050" name="yearid" style="width:100px;">年
         <input type="submit" name="exec" value="検索">
        </form>
      </td>
@@ -21,20 +21,20 @@
   <tr>
     <td>
      過去1年
-      <form action = "kensaku/kako_sonota.php" method="post">
-       <input type="submit" name="exec" value="検索">
+      <form action = "kensaku/kako_catone.php" method="post">
+       <input type="submit" name="exec" value="1番">
       </form>
        <br>
-      <form action = "kensaku/kako_kiken.php" method="post">
-       <input type="submit" name="exec" value="危険物">
+      <form action = "kensaku/kako_cattwo.php" method="post">
+       <input type="submit" name="exec" value="2番">
       </form>
        <br>
-      <form action = "kensaku/kako_setsubi.php" method="post">
-       <input type="submit" name="exec" value="設備">
+      <form action = "kensaku/kako_catthree.php" method="post">
+       <input type="submit" name="exec" value="3番">
       </form>
        <br>
-      <form action = "kensaku/kako_bouka.php" method="post">
-       <input type="submit" name="exec" value="防火管理">
+      <form action = "kensaku/kako_catfour.php" method="post">
+       <input type="submit" name="exec" value="4番">
       </form>
      </td>
      <td>
@@ -100,7 +100,7 @@
       </form>
     </td>
     <td>
-      <a href="kensaku/hiban_shukyu.php">非番週休の引継事項（一昨日、昨日、今日）</a>
+      <a href="kensaku/hiban_shukyu.php">3日間の引継事項（一昨日、昨日、今日）</a>
     </td>
   </tr>
 </table>
