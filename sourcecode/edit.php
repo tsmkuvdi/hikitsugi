@@ -1,7 +1,7 @@
 <?php
 // エラーを出力する
 ini_set('display_errors', "On");
-require_once 'db_config.php';
+require_once 'config/db_config.php';
 require_once ('function_gather/function_select_category.php');
 
 
@@ -11,7 +11,7 @@ try {
 	$dbh = new PDO("mysql:host=localhost;dbname=$databasename;charset=utf8", $user, $pass);
 	$dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$sql = "SELECT * FROM $dbtablename WHERE id = ?";
+	$sql = "SELECT * FROM $dbtablename WHERE id_hikitsugi = ?";
 	$stmt = $dbh->prepare($sql);
 	$stmt->bindValue(1, $id, PDO::PARAM_INT);
 	$stmt->execute();
@@ -45,16 +45,17 @@ try {
 <br>
 カテゴリ：
 <select name="category">
-     <?php category_select($result);  ?>         
-
-<!-- 元の記述
-<option value="1" <?php if($result['category'] === 1) echo "selected" ?>>届出 報告書 その他</option>
-<option value="2" <?php if($result['category'] === 2) echo "selected" ?>>危険物</option>
-<option value="3" <?php if($result['category'] === 3) echo "selected" ?>>設備</option>
-<option value="4" <?php if($result['category'] === 4) echo "selected" ?>>防火管理</option>
--->
-
+     <?php category_select($result);  ?>  <!-- function_select_category.php呼び出し-->
+　　　　<!-- 元の記述-->
 </select>
+      <!-- 上記元の記述内容
+        <option value="1" <?php if($result['category'] === 1) echo "selected" ?>>カテゴリ１</option>
+        <option value="2" <?php if($result['category'] === 2) echo "selected" ?>>カテゴリ２</option>
+        <option value="3" <?php if($result['category'] === 3) echo "selected" ?>>カテゴリ３</option>
+       <option value="4" <?php if($result['category'] === 4) echo "selected" ?>>カテゴリ４</option>
+      -->
+
+
 
 <br>
 進行状況：
@@ -69,7 +70,7 @@ try {
 <input type="submit" value="送信">
 <br>
 <br>
-<a href='list.php'>変更せず引継ぎ簿に戻る</a>
+<a href='index.php'>変更せず引継ぎ簿に戻る</a>
 </form>
 </body>
 </html>
