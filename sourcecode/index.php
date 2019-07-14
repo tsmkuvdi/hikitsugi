@@ -11,7 +11,6 @@
 // エラーを出力する
 ini_set('display_errors', "On");
 require_once ('config/db_config.php');
-require_once ('function_gather/function_category.php');
 
 try {
 	$dbh = new PDO("mysql:host=localhost;dbname=$databasename;charset=utf8", $user, $pass);
@@ -32,7 +31,7 @@ try {
 		echo "<td>" . htmlspecialchars($row['hizuke'],ENT_QUOTES,'UTF-8') . "</td>\n";
 		echo "<td width=50%>" . nl2br(htmlspecialchars($row['naiyou'],ENT_QUOTES,'UTF-8')) . "</td>\n";
 		echo "<td>" . htmlspecialchars($row['tantou'],ENT_QUOTES,'UTF-8') . "</td>\n";
-
+         require_once ('function_gather/function_category.php');
          $tmp = categoryDisplay_function($row);
   //呼び出し元からは関数内で必要な引数を渡してやる必要がある($row)
   //処理結果を共有するには戻り値で受け取ってやる必要がある($tmp)
