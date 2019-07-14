@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
-<title>引継簿3ヶ月以前検索</title>
+<title>引継簿3ヶ月以前その他検索</title>
 </head>
 <body>
-<h1>引継簿3ヶ月以前検索</h1>
+<h1>引継簿3ヶ月以前その他検索</h1>
 
 <?php
 // エラーを出力する
@@ -50,11 +50,9 @@ echo '引継ぎ簿入力期間&nbsp;&nbsp;&nbsp;&nbsp;'.htmlspecialchars($result
      </td>
   </tr>
   <tr>
-    <td>
-     過去1年
-      <form action = "kensaku/kako_catone.php" method="post">
-       <input type="submit" name="exec" value="1番">
-      </form>
+    <td>過去３ヶ月「未了」<br>
+           <?php require_once ('function_gather/function_shinkou_linkhtml.php'); ?>
+           <?php shinkou_Html_link(); ?>
      </td>
      <td>
 

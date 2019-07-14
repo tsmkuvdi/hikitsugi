@@ -68,7 +68,6 @@ try {
      <div align="left"><a href="form.php">引継簿新規登録</a></div>
     </td>
     <td>
-       <form action = "category_select_3month.php" method="post">
            <?php require_once ('function_gather/function_category_linkhtml.php'); ?>
            <?php category_Html_link(); ?>
     </td>
@@ -81,6 +80,15 @@ try {
       <form action = "box_kensaku.php" method="post">
         <input type="text" name="kenid">
         <input type="submit" name="exec" value="内容検索">
+      </form>
+    </td>
+    <td>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td>
+      <form action = "box_tantou_kensaku.php" method="post">
+        <input type="text" name="tantou">
+        <input type="submit" name="exec" value="担当検索">
       </form>
     </td>
     <td>

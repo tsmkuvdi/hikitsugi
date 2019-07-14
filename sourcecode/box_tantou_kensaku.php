@@ -6,21 +6,20 @@
 <title>引継内容検索</title>
 </head>
 <body>
-<h3>３ヶ月以内引継内容検索結果</h3>
+<h3>３ヶ月以内担当者検索結果</h3>
 <?php
 require_once 'config/db_config.php';
-require_once ('function_gather/function_category.php');
 
 try {
-             if (empty($_POST['kenid'])) {
-             echo '入力欄が未入力です。';
+	if (empty($_POST['tantou'])) {
+             echo '担当者欄が未入力です。';
              exit();
-             }
-	$aimaiken = '%'.$_POST['kenid'].'%';
+        }
+	$aimaiken = '%'.$_POST['tantou'].'%';
 	$dbh = new PDO("mysql:host=localhost;dbname=$databasename;charset=utf8", $user, $pass);
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	$sql = "SELECT * FROM $dbtablename where naiyou like '$aimaiken' 
+	$sql = "SELECT * FROM $dbtablename where tantou like '$aimaiken' 
 		AND  hizuke >= DATE_ADD(NOW(), INTERVAL -3 MONTH)
 		ORDER BY hizuke";
 

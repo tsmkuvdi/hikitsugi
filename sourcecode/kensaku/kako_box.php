@@ -9,7 +9,7 @@
 <h3>過去１年引継内容検索結果</h3>
 <?php
 require_once '../config/db_config.php';
-require_once '../function_gather/function_category.php';
+
 
 try {
 	if (empty($_POST['kenid'])) throw new Exception('Error');
@@ -34,13 +34,20 @@ try {
 		echo "<td width=50%>" . nl2br(htmlspecialchars($row['naiyou'],ENT_QUOTES,'UTF-8')) . "</td>\n";
 		echo "<td>" . htmlspecialchars($row['tantou'],ENT_QUOTES,'UTF-8') . "</td>\n";
 
+         require_once '../function_gather/function_category.php';
          $tmp = categoryDisplay_function($row); //関数呼び出し
 		echo "<td>" . htmlspecialchars($tmp ,ENT_QUOTES,'UTF-8') . "</td>\n";
 
-		if ($row['shinkou'] === '1') $zap = "未了";
-		if ($row['shinkou'] === '2') $zap = "済";
-		echo "<td>" . htmlspecialchars($zap ,ENT_QUOTES,'UTF-8') . "</td>\n";
+          require_once ('../function_gather/function_shinkou.php');
+         $tmpshinkou = '';
+         $tmpshinkou = shinkouDisplay_function($row); //function_shinkou.php読み込み
+		echo "<td>" . htmlspecialchars($tmpshinkou ,ENT_QUOTES,'UTF-8') . "</td>\n";
 
+		echo "<td>\n";
+		echo "<a href=../edit.php?id=" . htmlspecialchars($row['id_hikitsugi'],ENT_QUOTES,'UTF-8') . ">変更</a>\n";
+		echo "<a href=../predelete.php?id=" . htmlspecialchars($row['id_hikitsugi'],ENT_QUOTES,'UTF-8') . ">削除</a>\n";
+		echo "<a href=../print.php?id=" . htmlspecialchars($row['id_hikitsugi'],ENT_QUOTES,'UTF-8') . ">印刷</a>\n";
+		echo "</td>\n";
 
 		echo "</tr>\n";
 	}

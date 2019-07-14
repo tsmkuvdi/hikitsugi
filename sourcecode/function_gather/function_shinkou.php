@@ -1,5 +1,5 @@
 <?php
-//kako_shinkou.php,から呼び出し
+//kako_shinkou.php,shinkou_category_3month.php,box_tantou_kensaku.php,box_kensaku.php,tantou_box.php,kako_box.phpから呼び出し
 function shinkouDisplay_function($row){
   if ($row['shinkou'] === '1') $tmpshinkou = "未了";
   if ($row['shinkou'] === '2') $tmpshinkou = "済";
