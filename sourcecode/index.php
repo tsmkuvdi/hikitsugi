@@ -9,9 +9,8 @@
 <h3>引継ぎ簿　過去3ヶ月表示</h3>
 <?php
 // エラーを出力する
-//ini_set('display_errors', "On");
+ini_set('display_errors', "On");
 require_once ('config/db_config.php');
-require_once ('function_gather/function_category.php');
 
 try {
 	$dbh = new PDO("mysql:host=localhost;dbname=$databasename;charset=utf8", $user, $pass);
@@ -32,7 +31,7 @@ try {
 		echo "<td>" . htmlspecialchars($row['hizuke'],ENT_QUOTES,'UTF-8') . "</td>\n";
 		echo "<td width=50%>" . nl2br(htmlspecialchars($row['naiyou'],ENT_QUOTES,'UTF-8')) . "</td>\n";
 		echo "<td>" . htmlspecialchars($row['tantou'],ENT_QUOTES,'UTF-8') . "</td>\n";
-
+         require_once ('function_gather/function_category.php');
          $tmp = categoryDisplay_function($row);
   //呼び出し元からは関数内で必要な引数を渡してやる必要がある($row)
   //処理結果を共有するには戻り値で受け取ってやる必要がある($tmp)
@@ -65,41 +64,39 @@ try {
 <h3>
 <table  width=100%>
   <tr>
-    <th>
+    <td>
      <div align="left"><a href="form.php">引継簿新規登録</a></div>
-    </th>
-    <th>
-      <a href="cat_one.php">その他</a>
-    </th>
-    <th>
-      <a href="cat_two.php">2番</a>
-    </th>
-    <th>
-      <a href="cat_three.php">3番</a>
-    </th>
-    <th>
-      <a href="cat_four.php">4番</a>
-    </th>
-    <th>
-     <div align="right"><a href="prebackup.html">バックアップ</a></div>
-    </th>
+    </td>
+    <td>
+           <?php require_once ('function_gather/function_category_linkhtml.php'); ?>
+           <?php category_Html_link(); ?>
+    </td>
   </tr>
 </table>
 
 <table>
   <tr>
-    <th>
+    <td>
       <form action = "box_kensaku.php" method="post">
         <input type="text" name="kenid">
         <input type="submit" name="exec" value="内容検索">
       </form>
-    </th>
-    <th>
+    </td>
+    <td>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    </th>
-    <th>
+    </td>
+    <td>
+      <form action = "box_tantou_kensaku.php" method="post">
+        <input type="text" name="tantou">
+        <input type="submit" name="exec" value="担当検索">
+      </form>
+    </td>
+    <td>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+    <td>
       <a href="kako_kensaku.php">３ヶ月以上前の引継</a>
-    </th>
+    </td>
   </tr>
 </table>
 </h3>

@@ -1,56 +1,61 @@
 <!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
-<title>引継簿3ヶ月以前検索</title>
+<title>引継簿3ヶ月以前その他検索</title>
 </head>
 <body>
-<h1>引継簿3ヶ月以前検索</h1>
+<h1>引継簿3ヶ月以前その他検索</h1>
+
+<?php
+// エラーを出力する
+ini_set('display_errors', "On");
+require_once './config/db_config.php';
+
+try {
+	$dbh = new PDO("mysql:host=localhost;
+                        dbname=$databasename;charset=utf8", $user, $pass);
+	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        $sql = "SELECT MAX(hizuke) AS maxhizuke, MIN(hizuke) AS minhizuke
+                FROM $dbtablename";
+	$stmt = $dbh->query($sql);
+	$result = $stmt->fetch(PDO::FETCH_ASSOC);
+	$dbh = null;
+} catch (PDOException $e) {
+	echo "エラー発生: " . htmlspecialchars($e->getMessage(), ENT_QUOTES, 'UTF-8') . "<br>";
+	die();
+}
+
+echo '引継ぎ簿入力期間&nbsp;&nbsp;&nbsp;&nbsp;'.htmlspecialchars($result['minhizuke'],ENT_QUOTES,'UTF-8').' ～ '.htmlspecialchars($result['maxhizuke'],ENT_QUOTES,'UTF-8');
+
+?>
 
 <table border="1" width="100%">
   <tr>
-    <td>
-      <form action = "kensaku/kakoyear_kensaku.php" method="post">
-　　   西暦<input type="number" min="2018" max="2050" name="yearid" style="width:100px;">年
-        <input type="submit" name="exec" value="検索">
-       </form>
-     </td>
-     <td>
-
-     </td>
-  </tr>
-  <tr>
-    <td>
-     過去1年
-      <form action = "kensaku/kako_catone.php" method="post">
-       <input type="submit" name="exec" value="1番">
-      </form>
-       <br>
-      <form action = "kensaku/kako_cattwo.php" method="post">
-       <input type="submit" name="exec" value="2番">
-      </form>
-       <br>
-      <form action = "kensaku/kako_catthree.php" method="post">
-       <input type="submit" name="exec" value="3番">
-      </form>
-       <br>
-      <form action = "kensaku/kako_catfour.php" method="post">
-       <input type="submit" name="exec" value="4番">
-      </form>
-     </td>
-     <td>
-       <form action = "kensaku/kako_done_finished.php" method="post">
-　　    <input type="number" min="1" max="12" name="monthid" style="width:40px;">ヶ月前
+    <td COLSPAN="2">
+       <form action = "kensaku/kako_shinkou.php" method="post">
+　　    <input type="date" name="min_hizuke" >から
+        <input type="date" name="max_hizuke" >まで
         <select name="kategori" size="4">
            <?php require_once ('function_gather/function_category_html.php'); ?>
            <?php category_Html_Select(); ?>
         </select>
 
-        <select name="donefinished" size="2">
-         <option value="1">未了</option>
-         <option value="2">済</option>
+        <select name="shinkou" size="2">
+           <?php require_once ('function_gather/function_shinkou_html.php'); ?>
+           <?php shinkou_Html_Select(); ?>
         </select>
          <input type="submit" name="exec" value="検索">
        </form>
+     </td>
+  </tr>
+  <tr>
+    <td>過去３ヶ月「未了」<br>
+           <?php require_once ('function_gather/function_shinkou_linkhtml.php'); ?>
+           <?php shinkou_Html_link(); ?>
+     </td>
+     <td>
+
      </td>
   </tr>
   <tr>
@@ -101,6 +106,14 @@
     </td>
     <td>
       <a href="kensaku/day_three.php">3日間の引継事項（一昨日、昨日、今日）</a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      
+    </td>
+    <td>
+      <a href="prebackup.html">バックアップ</a>
     </td>
   </tr>
 </table>

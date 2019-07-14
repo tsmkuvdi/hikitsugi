@@ -10,25 +10,33 @@
 // エラーを出力する
 ini_set('display_errors', "On");
 require_once '../config/db_config.php';
-require_once '../function_gather/function_category.php';
 
 try {
 
-	if (empty($_POST['monthid'])) throw new Exception('Error');
-	$monthken = $_POST['monthid'];
-	$donefinished = $_POST['donefinished'];
+	if (empty($_POST['min_hizuke'])) {
+             echo 'はじまりの日付が入力されていません。';
+             exit();
+        }
+	if (empty($_POST['max_hizuke']))  {
+             echo '終わりの日付が入力されていません。';
+             exit();
+        }
+        $min_hizuke = $_POST['min_hizuke'];
+        $max_hizuke = $_POST['max_hizuke'];
+	$shinkou = $_POST['shinkou'];
         $kategori = $_POST['kategori'];
 
-        echo "<h3>{$monthken}ヶ月前 検索結果</h3>";
+        echo "<h3>{$min_hizuke}～{$max_hizuke} 検索結果</h3>";
 
 	$dbh = new PDO("mysql:host=localhost;dbname=$databasename;charset=utf8", $user, $pass);
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
 
-	$sql = "SELECT * FROM $dbtablename WHERE category = $kategori
-                AND shinkou = $donefinished
-		AND  hizuke >= DATE_ADD(NOW(), INTERVAL -$monthken MONTH)
+	$sql = "SELECT * FROM $dbtablename
+                WHERE category = $kategori
+                  AND shinkou = $shinkou
+		  AND hizuke BETWEEN '$min_hizuke' AND '$max_hizuke'
 		ORDER BY hizuke";
 
 
@@ -44,13 +52,13 @@ try {
 		echo "<td>" . htmlspecialchars($row['hizuke'],ENT_QUOTES,'UTF-8') . "</td>\n";
 		echo "<td width=50%>" . nl2br(htmlspecialchars($row['naiyou'],ENT_QUOTES,'UTF-8')) . "</td>\n";
 		echo "<td>" . htmlspecialchars($row['tantou'],ENT_QUOTES,'UTF-8') . "</td>\n";
-
-         $tmp = categoryDisplay_function($row); //関数呼び出し
+         require_once '../function_gather/function_category.php'; //関数呼び出し
+         $tmp = categoryDisplay_function($row); 
 		echo "<td>" . htmlspecialchars($tmp ,ENT_QUOTES,'UTF-8') . "</td>\n";
 
-		if ($row['shinkou'] === '1') $zap = "未了";
-		if ($row['shinkou'] === '2') $zap = "済";
-		echo "<td>" . htmlspecialchars($zap ,ENT_QUOTES,'UTF-8') . "</td>\n";
+         require_once '../function_gather/function_shinkou.php'; //関数呼び出し
+         $tmpshinkou = shinkouDisplay_function($row); 
+		echo "<td>" . htmlspecialchars($tmpshinkou ,ENT_QUOTES,'UTF-8') . "</td>\n";
 
 
 
@@ -69,7 +77,7 @@ try {
 	die();
 }
 
-        echo "{$monthken}ヶ月前 検索結果";
+      echo "<h3>{$min_hizuke}～{$max_hizuke} 検索結果</h3>";
 
 ?>
 

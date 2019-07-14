@@ -30,8 +30,15 @@
 <br>
 
 進行状況：
-<input type="radio" name="shinkou" value="1" checked>未了
-<input type="radio" name="shinkou" value="2">済
+<select name="shinkou">
+<!--
+<option value="">選択してください</option>
+-->
+           <?php require_once ('function_gather/function_shinkou_html.php'); ?>
+           <?php shinkou_Html_Select(); ?>
+<!-- php関数呼び出し-->
+
+</select>
 
 <br>
 <br>
