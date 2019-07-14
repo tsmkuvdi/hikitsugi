@@ -1,7 +1,9 @@
 <?php
+// エラーを出力する
+ini_set('display_errors', "On");
 // 出力情報の設定
 header("Content-Type: application/octet-stream");
-header("Content-Disposition: attachment; filename=yobou_hikitsugi.csv");
+header("Content-Disposition: attachment; filename=backup_hikitsugi.csv");
 header("Content-Transfer-Encoding: binary");
 
 
@@ -9,10 +11,10 @@ header("Content-Transfer-Encoding: binary");
 $csv = null;
 
 // 出力したいデータのサンプル
-require_once 'db_config.php';
-	$dbh = new PDO('mysql:host=localhost;dbname=hikitsugi_ver2;charset=utf8', $user, $pass);
+require_once './config/db_config.php';
+	$dbh = new PDO("mysql:host=localhost;dbname=$databasename;charset=utf8", $user, $pass);
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	$sql = "SELECT * FROM table_hikitsugi_v2";
+	$sql = "SELECT * FROM $dbtablename";
 	$stmt = $dbh->query($sql);
 	$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -23,7 +25,7 @@ $csv = '"ID","日付","内容","担当","カテゴリ","進行状況"' . "\n";
 
 // 出力データ生成
 foreach( $result as $value ) {
-	$csv .= '"' . $value['id'] . '","' . $value['hizuke'] . '","' . $value['naiyou'] . '","' . $value['tantou'] . '","' . $value['category'] . '","' . $value['shinkou'] . '"' . "\n";
+	$csv .= '"' . $value['id_hikitsugi'] . '","' . $value['hizuke'] . '","' . $value['naiyou'] . '","' . $value['tantou'] . '","' . $value['category'] . '","' . $value['shinkou'] . '"' . "\n";
 
 }
 

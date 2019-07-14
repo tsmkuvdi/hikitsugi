@@ -65,34 +65,31 @@ try {
 <h3>
 <table  width=100%>
   <tr>
-    <th>
+    <td>
      <div align="left"><a href="form.php">引継簿新規登録</a></div>
-    </th>
-    <th>
+    </td>
+    <td>
        <form action = "category_select_3month.php" method="post">
            <?php require_once ('function_gather/function_category_linkhtml.php'); ?>
            <?php category_Html_link(); ?>
-    </th>
-    <th>
-     <div align="right"><a href="prebackup.html">バックアップ</a></div>
-    </th>
+    </td>
   </tr>
 </table>
 
 <table>
   <tr>
-    <th>
+    <td>
       <form action = "box_kensaku.php" method="post">
         <input type="text" name="kenid">
         <input type="submit" name="exec" value="内容検索">
       </form>
-    </th>
-    <th>
+    </td>
+    <td>
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    </th>
-    <th>
+    </td>
+    <td>
       <a href="kako_kensaku.php">３ヶ月以上前の引継</a>
-    </th>
+    </td>
   </tr>
 </table>
 </h3>
