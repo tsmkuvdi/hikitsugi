@@ -110,7 +110,15 @@ echo '引継ぎ簿入力期間&nbsp;&nbsp;&nbsp;&nbsp;'.htmlspecialchars($result
   </tr>
   <tr>
     <td>
-      
+      まとめて削除
+      <form action = "kensaku/pre_all_delete.php" method="post">
+        <select name="pre_all_delete" size="3">
+         <option value="1">1年以上前削除</option>
+         <option value="3">3年以上前削除</option>
+         <option value="5">5年以上前削除</option>
+        </select>
+         <input type="submit" name="exec" value="削除">
+      </form>
     </td>
     <td>
       <a href="prebackup.html">バックアップ</a>
