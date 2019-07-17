@@ -14,7 +14,7 @@ try {
 	$dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$sql = "DELETE FROM $dbtablename
-                WHERE hizuke <= DATE_ADD(NOW(), INTERVAL -1 YEAR)";
+                WHERE hizuke <= DATE_ADD(NOW(), INTERVAL -$pre_all_delete YEAR)";
 
 	$stmt = $dbh->prepare($sql);
 	$stmt->execute();
@@ -23,8 +23,8 @@ try {
         session_destroy();
 
 
-	echo htmlspecialchars($pre_all_delete,ENT_QUOTES,'UTF-8') ."以上前のデータの削除が完了しました。<br>";
-echo "<a href='../index.php'>引継ぎ簿に戻る</a>";
+	echo htmlspecialchars($pre_all_delete,ENT_QUOTES,'UTF-8') ."年以上前のデータの削除が完了しました。<br>";
+        echo "<a href='../index.php'>引継ぎ簿に戻る</a>";
 } catch (Exception $e) {
 	echo "エラー発生: " . htmlspecialchars($e->getMessage(), ENT_QUOTES, 'UTF-8') . "<br>";
 	die();
