@@ -1,5 +1,5 @@
 <?php
-$user = "tryuser";
-$pass = "serverman";
+$user = "root";
+$pass = "toor";
 $databasename = "hikitsugi_db";
 $dbtablename = "table_hikitsugi";
