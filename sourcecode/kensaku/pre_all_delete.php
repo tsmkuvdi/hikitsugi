@@ -2,9 +2,7 @@
 // エラーを出力する
 ini_set('display_errors', "On");
 require_once ('../config/db_config.php');
-session_start();
-$_SESSION['pre_all_delete'] = $_POST['pre_all_delete'];
-$pre_all_delete = $_POST['pre_all_delete'];
+
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +18,18 @@ $pre_all_delete = $_POST['pre_all_delete'];
 
 
 <?php
+
+
+  if(empty($_POST['pre_all_delete'])){
+      echo "削除年数を選択してください。<br><a href='../kako_kensaku.php'>前のページに戻る</a>";
+      exit();
+  } else {
+      session_start();
+      $_SESSION['pre_all_delete'] = $_POST['pre_all_delete'];
+      $pre_all_delete = $_POST['pre_all_delete'];
+  }
+
+
 try {
 	$dbh = new PDO("mysql:host=localhost;dbname=$databasename;charset=utf8", $user, $pass);
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
