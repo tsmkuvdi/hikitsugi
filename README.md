@@ -9,7 +9,7 @@
 
 ## Installation
  
- If necessary, rewrite the "db_config.php" file under the "config" directory and php filesunder the "function_gather" directory.
+ If necessary, rewrite the "db_config.php" file under the "config" directory and php files under the "function_gather" directory.
 
  install the files under the sourcecode directory in any folder.
  
