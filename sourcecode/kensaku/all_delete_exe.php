@@ -6,9 +6,13 @@ require_once '../config/db_config.php';
 session_start();
 $pre_all_delete = $_SESSION['pre_all_delete'];
 
-
 try {
 	if (empty($pre_all_delete)) throw new Exception('Error');
+        if (empty($_POST['sakujyo']) || ($_POST['sakujyo'] !== 'sakujyo')) {
+             echo "削除する場合、入力フォームに正しく入力してください。<br><a href='../kako_kensaku.php'>前のページに戻る</a>";
+             exit();
+        }
+
 
 	$dbh = new PDO("mysql:host=localhost;dbname=$databasename;charset=utf8", $user, $pass);
 	$dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
