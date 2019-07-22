@@ -8,8 +8,11 @@
  - PHP7
 
 ## Installation
- install the files under the sourcecode directory in any folder.
+ 
+ If necessary, rewrite the "db_config.php" file under the "config" directory and php filesunder the "function_gather" directory.
 
+ install the files under the sourcecode directory in any folder.
+ 
 ## Modification History
 2018 july version1 released  
 2019 april version2 released
