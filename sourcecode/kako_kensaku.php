@@ -121,12 +121,11 @@ echo '引継ぎ簿入力期間&nbsp;&nbsp;&nbsp;&nbsp;'.htmlspecialchars($result
       </form>
     </td>
     <td>
+      <a href="index.php">一覧に戻る</a>
+       <br><br>
       <a href="prebackup.html">バックアップ</a>
     </td>
   </tr>
 </table>
-
-<a href="index.php">一覧に戻る</a>
-
 </body>
 </html>
