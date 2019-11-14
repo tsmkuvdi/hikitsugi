@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
-<title>引継簿3ヶ月以前その他検索</title>
+<title>引継簿3ヶ月以上前その他検索</title>
 </head>
 <body>
-<h1>引継簿3ヶ月以前その他検索</h1>
+<h1>引継簿3ヶ月以上前その他検索</h1>
 
 <?php
 // エラーを出力する
