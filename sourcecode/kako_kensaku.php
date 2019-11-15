@@ -123,7 +123,7 @@ echo '引継ぎ簿入力期間&nbsp;&nbsp;&nbsp;&nbsp;'.htmlspecialchars($result
     <td>
       <a href="index.php">一覧に戻る</a>
        <br><br>
-      <a href="prebackup.html">バックアップ</a>
+      <a href="prebackup.html">バックアップ</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/tsmkuvdi/hikitsugi">GitHub</a>
     </td>
   </tr>
 </table>
