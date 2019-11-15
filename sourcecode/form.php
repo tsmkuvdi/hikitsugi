@@ -9,13 +9,13 @@
 <form method="post" action="add.php">
 日付：
 <input type="date" name="hizuke" >
+<br><br>
+内容：(全角250文字)
 <br>
-内容：
-<br>
-<textarea name="naiyou" cols="40" rows="6" maxlength="250"></textarea>
+<textarea name="naiyou" cols="40" rows="6" maxlength="500"></textarea>
 <br>
 担当名：
-<textarea name="tantou" cols="15" rows="2" maxlength="40"></textarea>
+<textarea name="tantou" cols="15" rows="2" maxlength="40"></textarea>(個人名入力)
 <br>
 カテゴリ：
 <select name="category">
