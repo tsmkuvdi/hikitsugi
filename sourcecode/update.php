@@ -1,6 +1,6 @@
 ﻿<?php
-require_once 'db_config.php';
-require_once 'config_post.php';
+require_once 'config/db_config.php';
+require_once 'config/config_post.php';
 
 try {
 	if (empty($_POST['id'])) throw new Exception('Error');
