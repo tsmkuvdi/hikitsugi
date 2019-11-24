@@ -10,7 +10,7 @@
 日付：
 <input type="date" name="hizuke" >
 <br><br>
-内容：(全角250文字)
+内容：(全角250文字)("や'を入れるとバックアップが機能しません。)
 <br>
 <textarea name="naiyou" cols="40" rows="6" maxlength="500"></textarea>
 <br>
