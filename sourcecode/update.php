@@ -20,7 +20,7 @@ try {
 	$dbh = null;
 	echo "ID: " . htmlspecialchars($id,ENT_QUOTES,'UTF-8') ."引継内容の更新が完了しました。<br>";
 echo "<br>";
-echo "<a href='list.php'>引継ぎ簿に戻る</a>";
+echo "<a href='index.php'>引継ぎ簿に戻る</a>";
 } catch (Exception $e) {
 	echo "エラー発生: " . htmlspecialchars($e->getMessage(), ENT_QUOTES, 'UTF-8') . "<br>";
 	die();
