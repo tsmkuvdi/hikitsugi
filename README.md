@@ -4,7 +4,7 @@
 
 ## Requirements
  - centos8
- - 10.3.15-MariaDB
+ - 10.3.17-MariaDB
  - PHP 7.4.3
 
 ## Installation
