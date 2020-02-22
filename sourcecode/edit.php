@@ -7,13 +7,13 @@ require_once ('function_gather/function_select_category.php');
 
 try {
 	if (empty($_GET['id'])) throw new Exception('Error');
-	$id = (int) $_GET['id'];
+	$id_hikitsugi = (int) $_GET['id'];
 	$dbh = new PDO("mysql:host=localhost;dbname=$databasename;charset=utf8", $user, $pass);
 	$dbh->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 	$sql = "SELECT * FROM $dbtablename WHERE id_hikitsugi = ?";
 	$stmt = $dbh->prepare($sql);
-	$stmt->bindValue(1, $id, PDO::PARAM_INT);
+	$stmt->bindValue(1, $id_hikitsugi, PDO::PARAM_INT);
 	$stmt->execute();
 	$result = $stmt->fetch(PDO::FETCH_ASSOC);
 	$dbh = null;
@@ -66,7 +66,7 @@ try {
  <input type="radio" name="shinkou" value="2" <?php if($result['shinkou'] === 2) echo "checked" ?>>済
 </label>
 <br>
-<input type="hidden" name="id" value="<?php echo htmlspecialchars($result['id'], ENT_QUOTES, 'UTF-8'); ?>">
+<input type="hidden" name="id" value="<?php echo htmlspecialchars($result['id_hikitsugi'], ENT_QUOTES, 'UTF-8'); ?>">
 <input type="submit" value="送信">
 <br>
 <br>
